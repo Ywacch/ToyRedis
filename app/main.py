@@ -11,6 +11,10 @@ def main():
     server_socket = socket.create_server(("localhost", 6379), reuse_port=True)
     server_socket.accept() # wait for client
 
+    data = server_socket.recv()
+
+    server_socket.send("PONG")
+
 
 if __name__ == "__main__":
     main()
